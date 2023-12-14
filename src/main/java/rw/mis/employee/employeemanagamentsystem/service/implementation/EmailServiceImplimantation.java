@@ -17,7 +17,14 @@ public class EmailServiceImplimantation implements EmailService {
         SimpleMailMessage message= new SimpleMailMessage();
         message.setTo(employee.getEmail());
         message.setSubject("New Task Notification");
-        message.setText("hello "+"  "+employee.getFirstName()+"   "+employee.getLastName()+ "  "+task.getTitle()+" "+task.getDescription());
+        message.setText("Hello " + employee.getFirstName() + " " + employee.getLastName() + ",\n\n"
+                + "You have a new task:\n"
+                + "Title: " + task.getTitle() + "\n"
+                + "Description: " + task.getDescription() + "\n\n"
+                + "Please review and complete the task at your earliest convenience.\n\n"
+                + "Best regards,\n"
+                + "Rwanda Energy Group");
+
         javaMailSender.send(message);
 
 

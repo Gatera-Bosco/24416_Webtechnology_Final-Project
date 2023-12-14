@@ -55,8 +55,8 @@ public class EmployeeController {
     }
 
     @PostMapping("/adminNewEmployee")
-    public String newEmployee(Employee employee, @RequestParam("photoFile") MultipartFile photoFile, Model model) {
-        Employee employee1=employeeService.newEmployee(employee,photoFile);
+    public String newEmployee(Employee employee,  Model model) {
+        Employee employee1=employeeService.newEmployee(employee);
         if(employee1==null){
             model.addAttribute(
                     "FailureMessage","Failed to create employee");

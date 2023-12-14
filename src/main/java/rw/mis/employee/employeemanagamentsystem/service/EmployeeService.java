@@ -8,7 +8,7 @@ import rw.mis.employee.employeemanagamentsystem.model.Task;
 import java.util.List;
 
 public interface EmployeeService {
-    Employee newEmployee(Employee employee, MultipartFile photoFile);
+    Employee newEmployee(Employee employee);
     void deleteEmployee(String employeeId);
     Employee updateEmployee(Employee employee);
     List<Employee> getEmployees();

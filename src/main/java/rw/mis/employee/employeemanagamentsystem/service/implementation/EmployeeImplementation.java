@@ -20,7 +20,7 @@ public class EmployeeImplementation implements EmployeeService {
 
 
     @Override
-    public Employee newEmployee(Employee employee, MultipartFile photoFile) {
+    public Employee newEmployee(Employee employee) {
 //        if(photoFile != null && !photoFile.isEmpty()) {
 //            try {
 //                employee.setImage(photoFile.getBytes());
