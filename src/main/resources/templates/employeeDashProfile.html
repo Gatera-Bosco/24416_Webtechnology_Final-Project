@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<th:block th:include="/pages/navBar"></th:block>
+<div class="container mt-4">
+  <h2>My Profile</h2>
+  <div th:if="${authenticatedEmployee}">
+    <table class="table">
+      <tbody>
+      <tr>
+        <td><strong>Employee ID:</strong></td>
+        <td th:text="${authenticatedEmployee.employeeId}"></td>
+      </tr>
+      <tr>
+        <td><strong>First Name:</strong></td>
+        <td th:text="${authenticatedEmployee.firstName}"></td>
+      </tr>
+      <tr>
+        <td><strong>Last Name:</strong></td>
+        <td th:text="${authenticatedEmployee.lastName}"></td>
+      </tr>
+      <tr>
+        <td><strong>Email:</strong></td>
+        <td th:text="${authenticatedEmployee.email}"></td>
+      </tr>
+      <tr>
+        <td><strong>Phone:</strong></td>
+        <td th:text="${authenticatedEmployee.phone}"></td>
+      </tr>
+      <tr>
+        <td><strong>Gender:</strong></td>
+        <td th:text="${authenticatedEmployee.gender}"></td>
+      </tr>
+      <tr>
+        <td><strong>Date Of Birth:</strong></td>
+        <td th:text="${authenticatedEmployee.dateOfBirth}"></td>
+      </tr>
+      <tr>
+        <td><strong>Password:</strong></td>
+        <td th:text="${authenticatedEmployee.password}"></td>
+      </tr>
+      <tr>
+        <td><strong>Branch:</strong></td>
+        <td th:text="${authenticatedEmployee.branch.branchName}"></td>
+      </tr>
+      <tr>
+        <td><strong>Role:</strong></td>
+        <td th:text="${authenticatedEmployee.role.roleTitle}"></td>
+      </tr>
+      <tr>
+        <td><strong>Department:</strong></td>
+        <td th:text="${authenticatedEmployee.department.departmentName}"></td>
+      </tr>
+      <tr>
+        <td><strong>Hired Date:</strong></td>
+        <td th:text="${authenticatedEmployee.hireDate}"></td>
+      </tr>
+      <!-- Add more profile fields as needed -->
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfile">Edit Profile</button>
+
+    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfileModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post" th:action="@{/updateEmployee}" th:object="${authenticatedEmployee}">
+
+              <div class="mb-3">
+                <label for="employeeId" class="form-label">Employee ID</label>
+                <input type="text" class="form-control" id="employeeId" th:field="*{employeeId}" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" th:field="*{firstName}" required>
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" th:field="*{lastName}" required>
+              </div>
+              <!-- Add other fields as needed -->
+
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function () {
+    sidebar.classList.toggle("active");
+    if (sidebar.classList.contains("active")) {
+      sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+    } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  };
+</script>

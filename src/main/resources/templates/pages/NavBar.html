@@ -1,0 +1,33 @@
+
+
+<div style=" width: 100%;">
+
+</div>
+<nav class="navbar navbar-expand-lg bg-danger" style="background-color: black;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="color: white;">REG Employee MIS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  th:href="@{/employee}" style="color: white;">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/employeeTask}" style="color: white;">MY TASKS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/employeePayment}" style="color: white;">MY PAYMENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/employeeProfile}" style="color: white;">MY PROFILES</a>
+        </li>
+      </ul>
+      <th:block th:if="${authenticatedEmployee}">
+        <p th:text="'Welcome, ' + ${authenticatedEmployee.firstName} + ' ' + ${authenticatedEmployee.lastName}" style="color: white"></p>
+      </th:block>
+      <a class="nav-link" th:href="@{/}" > Log_out</a>
+    </div>
+  </div>
+</nav>
