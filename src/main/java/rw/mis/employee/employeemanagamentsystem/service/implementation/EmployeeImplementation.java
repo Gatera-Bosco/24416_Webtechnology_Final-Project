@@ -21,15 +21,15 @@ public class EmployeeImplementation implements EmployeeService {
 
     @Override
     public Employee newEmployee(Employee employee, MultipartFile photoFile) {
-        if(photoFile != null && !photoFile.isEmpty()) {
-            try {
-                employee.setImage(photoFile.getBytes());
-            }catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-        }
+//        if(photoFile != null && !photoFile.isEmpty()) {
+//            try {
+//                employee.setImage(photoFile.getBytes());
+//            }catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//
+//        }
         return dao.save(employee);
     }
 

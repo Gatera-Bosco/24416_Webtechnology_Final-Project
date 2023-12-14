@@ -38,9 +38,9 @@ public class Employee {
     }
     @OneToMany(mappedBy = "employee")
     private List<Task> tasks;
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private byte[] image;
+//    @Lob
+//    @Column(columnDefinition = "LONGBLOB")
+//    private byte[] image;
 
 
 }
