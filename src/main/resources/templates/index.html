@@ -1,3 +1,75 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            background-color: #dc3545; /* Red */-->
+<!--            height: 100vh;-->
+<!--        }-->
+<!--        #login {-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+<!--        .card {-->
+<!--            background-color: #fff; /* White */-->
+<!--        }-->
+<!--        .card-title {-->
+<!--            color: #dc3545; /* Red */-->
+<!--        }-->
+<!--        .btn-primary {-->
+<!--            background-color: #dc3545; /* Red */-->
+<!--            border-color: #dc3545; /* Red */-->
+<!--        }-->
+<!--        .btn-primary:hover {-->
+<!--            background-color: #c82333; /* Darker Red */-->
+<!--            border-color: #bd2130; /* Darker Red */-->
+<!--        }-->
+<!--        a {-->
+<!--            color: #dc3545; /* Red */-->
+<!--        }-->
+<!--        a:hover {-->
+<!--            color: #bd2130; /* Darker Red */-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div id="login" class="container">-->
+<!--    <div class="row justify-content-center align-items-center">-->
+<!--        <div class="col-md-6">-->
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <h3 class="card-title text-center mb-4">Employee Management System</h3>-->
+<!--                    <form id="login-form" th:action="@{employeeLogin}" method="post">-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="userName">Username:</label>-->
+<!--                            <input type="email" name="userName" id="userName" class="form-control">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="password">Password:</label>-->
+<!--                            <input type="password" name="password" id="password" class="form-control">-->
+<!--                        </div>-->
+<!--                        <div class="form-group text-center">-->
+<!--                            <label th:if="${errorMessage}" th:text="${errorMessage}" style="color: red"></label>-->
+<!--                        </div>-->
+<!--                        <div class="form-group text-center">-->
+<!--                            <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,7 +81,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #dc3545; /* Red */
+            background-image: url("/Rwanda REG.jpg");
             height: 100vh;
         }
         #login {
@@ -58,10 +130,13 @@
                             <label th:if="${errorMessage}" th:text="${errorMessage}" style="color: red"></label>
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Employee Login</button>
                         </div>
                     </form>
 
+                    <div class="form-group text-center">
+                        <a th:href="@{/loginAdmin}" class="btn btn-link">Administrator Login</a>
+                    </div>
                 </div>
             </div>
         </div>
